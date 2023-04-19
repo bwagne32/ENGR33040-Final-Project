@@ -12,10 +12,7 @@ G = tf(num,den);
 step(G);
 
 %% Step Response Graphs and Gain Values
-% Define the plant transfer function
-G = tf(num, den);
-
-% Define the range of K values to test
+% Gain values
 K_values = 0:0.1:100;
 
 % Initialize variables to store the best K and corresponding rise time
@@ -54,3 +51,8 @@ fprintf("Max steering angle: %.2f degrees\n",step_info.Peak)
 %% Bode Plot
 figure
 bode(num,den);
+fprintf("Bandwidth: %f\nCutoff: ",bandwidth(Gc))
+
+
+
+
