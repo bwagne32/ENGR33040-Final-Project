@@ -55,5 +55,5 @@ for i = 1:1000
         break;
     end
 end
-fprintf("Bandwidth: %.2f\n",bandwidth)
 
+fprintf("Bandwidth: 0-%.2f rad/s\n",bandwidth)
