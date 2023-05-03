@@ -13,7 +13,7 @@ step(G);
 
 %% Step Response Graphs and Gain Values
 % Gain values to test
-K_values = 0:0.1:100;
+K_values = 0:0.05:108;
 
 best_K = 0;
 best_rise_time = Inf;
