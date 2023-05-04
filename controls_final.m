@@ -41,6 +41,8 @@ fprintf('Rise time: %.2f s\n', best_rise_time);
 % Step response plot with best gain (K) value found
 Gc_opt = tf(best_K, 1);
 sys_cl_opt = feedback(G*Gc_opt, 1);
+sys_cl = feedback(G*Gc_opt, 1);
+step_info = stepinfo(sys_cl);
 step(sys_cl_opt);
 fprintf("Max steering angle: %.2f degrees\n",step_info.Peak)
 
@@ -49,11 +51,12 @@ figure
 bode(num,den);
 [mag, phase, wout] = bode(tf(num,den), logspace(-1,1,1000));
 magdb = 20*log10(mag);
-for i = 1:1000
+for i = 1:length(magdb)
     if (ceil(magdb(1,1,i)) == -3)
         bandwidth = wout(i);
         break;
     end
 end
+clear i;
 
 fprintf("Bandwidth: 0-%.2f rad/s\n",bandwidth)
